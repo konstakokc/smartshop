@@ -41,8 +41,10 @@
           <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
           <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.1" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.modelmapper:modelmapper:2.1.1" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="smartshop/web/Web2" />
     </root>
   </artifact>
 </component>

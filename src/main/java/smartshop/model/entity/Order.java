@@ -41,7 +41,7 @@ public class Order extends BaseEntity {
     private AddressEntity address;
 
 //    @
-    private List<OrderItem> orderItems;
+//    private List<OrderItem> orderItems;
 
     private ShipmentMethod shipmentMethod;
 

@@ -15,7 +15,7 @@ public class Product extends BaseEntity {
 
     //------??------//
     //param name, param Value
-    private Map<String, String> parameters;
+//    private Map<String, String> parameters;
 
     @ManyToOne
     private Category category;

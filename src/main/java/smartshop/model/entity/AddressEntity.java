@@ -1,21 +1,23 @@
 package smartshop.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "address")
+@Table(name = "address")
 public class AddressEntity extends BaseEntity {
-    // todo change field types
+
     private String country;
     private String city;
-    private String postalCode;
+    private int postalCode;
     private String street;
     private String building;
-    private String apartment;
+    private int apartment;
 
     public AddressEntity() {
     }
 
-    public AddressEntity(String country, String city, String postalCode, String street, String building, String apartment) {
+    public AddressEntity(String country, String city, int postalCode, String street, String building, int apartment) {
         this.country = country;
         this.city = city;
         this.postalCode = postalCode;
@@ -40,11 +42,11 @@ public class AddressEntity extends BaseEntity {
         this.city = city;
     }
 
-    public String getPostalCode() {
+    public int getPostalCode() {
         return postalCode;
     }
 
-    public void setPostalCode(String postalCode) {
+    public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
     }
 
@@ -64,11 +66,23 @@ public class AddressEntity extends BaseEntity {
         this.building = building;
     }
 
-    public String getApartment() {
+    public int getApartment() {
         return apartment;
     }
 
-    public void setApartment(String apartment) {
+    public void setApartment(int apartment) {
         this.apartment = apartment;
+    }
+
+    @Override
+    public String toString() {
+        return "AddressEntity{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode=" + postalCode +
+                ", street='" + street + '\'' +
+                ", building='" + building + '\'' +
+                ", apartment=" + apartment +
+                '}';
     }
 }

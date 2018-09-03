@@ -1,13 +1,12 @@
 package smartshop.dao;
 
+import java.util.List;
 import smartshop.model.entity.AddressEntity;
 
-public class AddressDao {
-
-    public AddressEntity getAddress(int index) {
-        // go to db by index
-        // got  AddressEntity
-        return new AddressEntity();
-    }
-
+public interface AddressDao {
+    //crud
+    void addAddress(AddressEntity address);
+    AddressEntity getAddress(int id);
+    void deleteAddress(int id);
+    List<AddressEntity> getAddresses();
 }
