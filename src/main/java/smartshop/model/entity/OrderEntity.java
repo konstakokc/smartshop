@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Order extends BaseEntity {
+public class OrderEntity extends BaseEntity {
 
     enum PaymentStatus {
         AWAITING_PAYMENT,
@@ -36,13 +36,13 @@ public class Order extends BaseEntity {
     }
 
     @ManyToOne
-    private User user;
+    private UserEntity user;
 
 //    @ManyToOne ?
     private AddressEntity address;
 
     @OneToMany
-    private List<OrderItem> orderItems;
+    private List<OrderItemEntity> orderItems;
 
     private LocalDate placedOn;
 
@@ -56,11 +56,11 @@ public class Order extends BaseEntity {
 
     private OrderStatus orderStatus;
 
-    public User getUser() {
+    public UserEntity getUserEntity() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUserEntity(UserEntity user) {
         this.user = user;
     }
 
@@ -72,11 +72,11 @@ public class Order extends BaseEntity {
         this.address = address;
     }
 
-    public List<OrderItem> getOrderItems() {
+    public List<OrderItemEntity> getOrderItems() {
         return orderItems;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
+    public void setOrderItems(List<OrderItemEntity> orderItems) {
         this.orderItems = orderItems;
     }
 

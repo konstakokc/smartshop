@@ -4,20 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class OrderItem {
+public class OrderItemEntity {
 
     @ManyToOne
-    private Product product;
+    private ProductEntity product;
 
     private int quantity;
 
     private float price;
 
-    public Product getProduct() {
+    public ProductEntity getProductEntity() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProductEntity(ProductEntity product) {
         this.product = product;
     }
 

@@ -1,11 +1,10 @@
 package smartshop.model.entity;
 
-import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Product extends BaseEntity {
+public class ProductEntity extends BaseEntity {
 
     private String name;
     private float price;
@@ -18,7 +17,7 @@ public class Product extends BaseEntity {
 //    private Map<String, String> parameters;
 
     @ManyToOne
-    private Category category;
+    private CategoryEntity category;
 
     public String getName() {
         return name;
@@ -60,11 +59,11 @@ public class Product extends BaseEntity {
         this.stockQuantity = stockQuantity;
     }
 
-    public Category getCategory() {
+    public CategoryEntity getCategoryEntity() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategoryEntity(CategoryEntity category) {
         this.category = category;
     }
 }

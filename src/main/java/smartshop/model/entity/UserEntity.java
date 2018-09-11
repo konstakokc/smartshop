@@ -8,7 +8,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class User extends BaseEntity{
+public class UserEntity extends BaseEntity{
 
     private String firstName;
     private String lastName;
@@ -22,22 +22,21 @@ public class User extends BaseEntity{
     private List<AddressEntity> addresses;
 
     @OneToMany()
-    private List<Order> orders;
+    private List<OrderEntity> orders;
 
-    public User() {
-        this.addresses = new ArrayList<AddressEntity>();
-        this.orders = new ArrayList<Order>();
+    public UserEntity() {
+        this.addresses = new ArrayList<>();
+        this.orders = new ArrayList<>();
     }
 
-    public User(String firstName, String lastName, LocalDate birthdate, String email,
-            String password) {
+    public UserEntity(String firstName, String lastName, LocalDate birthdate, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
         this.email = email;
         this.password = password;
-        this.addresses = new ArrayList<AddressEntity>();
-        this.orders = new ArrayList<Order>();
+        this.addresses = new ArrayList<>();
+        this.orders = new ArrayList<>();
     }
 
     public String getFirstName() {
@@ -88,11 +87,11 @@ public class User extends BaseEntity{
         this.addresses = addresses;
     }
 
-    public List<Order> getOrders() {
+    public List<OrderEntity> getOrderEntities() {
         return orders;
     }
 
-    public void setOrders(List<Order> orders) {
+    public void setOrderEntities(List<OrderEntity> orders) {
         this.orders = orders;
     }
 }
