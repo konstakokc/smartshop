@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Order extends BaseEntity {
@@ -40,8 +41,12 @@ public class Order extends BaseEntity {
 //    @ManyToOne ?
     private AddressEntity address;
 
-//    @
-//    private List<OrderItem> orderItems;
+    @OneToMany
+    private List<OrderItem> orderItems;
+
+    private LocalDate placedOn;
+
+    private float totalPrice;
 
     private ShipmentMethod shipmentMethod;
 
@@ -51,5 +56,75 @@ public class Order extends BaseEntity {
 
     private OrderStatus orderStatus;
 
-    private LocalDate placedOn;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public AddressEntity getAddress() {
+        return address;
+    }
+
+    public void setAddress(AddressEntity address) {
+        this.address = address;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public LocalDate getPlacedOn() {
+        return placedOn;
+    }
+
+    public void setPlacedOn(LocalDate placedOn) {
+        this.placedOn = placedOn;
+    }
+
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public ShipmentMethod getShipmentMethod() {
+        return shipmentMethod;
+    }
+
+    public void setShipmentMethod(ShipmentMethod shipmentMethod) {
+        this.shipmentMethod = shipmentMethod;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public PaymentStatus getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(PaymentStatus paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
 }
