@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class OrderItemEntity {
+public class OrderItemEntity extends BaseEntity {
 
     @ManyToOne
     private ProductEntity product;

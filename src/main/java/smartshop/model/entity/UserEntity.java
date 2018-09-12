@@ -8,7 +8,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class UserEntity extends BaseEntity{
+public class UserEntity extends BaseEntity {
 
     private String firstName;
     private String lastName;
