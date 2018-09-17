@@ -15,7 +15,7 @@ public class AddressController {
         this.addressService = addressService;
     }
 
-    @GetMapping(value = "/adresses")
+    @GetMapping(value = "/addresses")
     public String getAddresses(Model model) {
         model.addAttribute("addresses", this.addressService.getAddresses());
         return "addresses";

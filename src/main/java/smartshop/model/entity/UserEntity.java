@@ -8,7 +8,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-@Entity
+@Entity(name = "user")
 @Table(name = "user")
 public class UserEntity extends BaseEntity {
 

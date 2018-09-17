@@ -1,9 +1,14 @@
 package smartshop.model.entity;
 
+import java.util.HashMap;
+import java.util.Map;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "product")
+@Table(name = "product")
 public class ProductEntity extends BaseEntity {
 
     private String name;
@@ -14,10 +19,15 @@ public class ProductEntity extends BaseEntity {
 
     //------??------//
     //param name, param Value
-//    private Map<String, String> parameters;
+    @ElementCollection
+    private Map<String, String> parameters;
 
     @ManyToOne
     private CategoryEntity category;
+
+    public ProductEntity() {
+        parameters = new HashMap<>();
+    }
 
     public String getName() {
         return name;
@@ -64,6 +74,22 @@ public class ProductEntity extends BaseEntity {
     }
 
     public void setCategoryEntity(CategoryEntity category) {
+        this.category = category;
+    }
+
+    public Map<String, String> getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(Map<String, String> parameters) {
+        this.parameters = parameters;
+    }
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
         this.category = category;
     }
 }

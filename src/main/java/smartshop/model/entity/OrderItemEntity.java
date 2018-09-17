@@ -2,8 +2,10 @@ package smartshop.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "orderItem")
+@Table(name = "orderItem")
 public class OrderItemEntity extends BaseEntity {
 
     @ManyToOne

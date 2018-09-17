@@ -1,8 +1,10 @@
 package smartshop.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "category")
+@Table(name = "category")
 public class CategoryEntity extends BaseEntity {
     private String name;
 
