@@ -1,6 +1,7 @@
 package smartshop.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 public class OrderItemEntity extends BaseEntity {
 
     @ManyToOne
+    @JoinColumn(name = "product_id")
     private ProductEntity product;
 
     private int quantity;

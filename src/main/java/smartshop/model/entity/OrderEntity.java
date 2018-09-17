@@ -7,41 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import smartshop.model.entity.Utils.*;
 
 @Entity(name = "order")
-@Table(name = "order")
+@Table(name = "orders")
 public class OrderEntity extends BaseEntity {
-
-    enum PaymentStatus {
-        AWAITING_PAYMENT,
-        PROCESSING_PAYMENT,
-        PAID
-    }
-
-    enum OrderStatus {
-        AWAITING_PAYMENT,
-        BEING_PROCESSED,
-        AWAITING_SHIPMENT,
-        SHIPPED,
-        DELIVERED
-    }
-
-    enum ShipmentMethod {
-        SELFPICKUP,
-        POST,
-        COURIER
-    }
-
-    enum PaymentMethod {
-        CASH,
-        CARD_ONLINE,
-        CARD_ON_DELIVERY
-    }
 
     @ManyToOne
     private UserEntity user;
 
-//    @ManyToOne ?
+    @ManyToOne
     private AddressEntity address;
 
     @OneToMany
@@ -133,5 +108,20 @@ public class OrderEntity extends BaseEntity {
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderEntity{" +
+                "user=" + user +
+                ", address=" + address +
+                ", orderItems=" + orderItems +
+                ", placedOn=" + placedOn +
+                ", totalPrice=" + totalPrice +
+                ", shipmentMethod=" + shipmentMethod +
+                ", paymentMethod=" + paymentMethod +
+                ", paymentStatus=" + paymentStatus +
+                ", orderStatus=" + orderStatus +
+                '}';
     }
 }

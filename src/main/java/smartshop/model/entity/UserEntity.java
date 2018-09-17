@@ -96,4 +96,14 @@ public class UserEntity extends BaseEntity {
     public void setOrderEntities(List<OrderEntity> orders) {
         this.orders = orders;
     }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthdate=" + birthdate +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

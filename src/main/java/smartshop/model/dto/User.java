@@ -1,10 +1,10 @@
 package smartshop.model.dto;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class User extends BaseDto {
-
     private String firstName;
     private String lastName;
     private LocalDate birthdate;
@@ -13,6 +13,11 @@ public class User extends BaseDto {
 
     private List<Address> addresses;
     private List<Order> orders;
+
+    public User() {
+        addresses = new ArrayList<>();
+        orders = new ArrayList<>();
+    }
 
     public String getFirstName() {
         return firstName;

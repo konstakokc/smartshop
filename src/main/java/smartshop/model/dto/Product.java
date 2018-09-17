@@ -1,33 +1,17 @@
-package smartshop.model.entity;
+package smartshop.model.dto;
 
-import java.util.HashMap;
 import java.util.Map;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity(name = "product")
-@Table(name = "product")
-public class ProductEntity extends BaseEntity {
-
+public class Product extends BaseDto {
     private String name;
     private float price;
     private float weight;
     private String dimensions;
     private int stockQuantity;
 
-    //------??------//
-    //param name, param Value
-    @ElementCollection
     private Map<String, String> parameters;
 
-    @ManyToOne
-    private CategoryEntity category;
-
-    public ProductEntity() {
-        parameters = new HashMap<>();
-    }
+    private Category category;
 
     public String getName() {
         return name;
@@ -69,14 +53,6 @@ public class ProductEntity extends BaseEntity {
         this.stockQuantity = stockQuantity;
     }
 
-    public CategoryEntity getCategoryEntity() {
-        return category;
-    }
-
-    public void setCategoryEntity(CategoryEntity category) {
-        this.category = category;
-    }
-
     public Map<String, String> getParameters() {
         return parameters;
     }
@@ -85,24 +61,11 @@ public class ProductEntity extends BaseEntity {
         this.parameters = parameters;
     }
 
-    public CategoryEntity getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(CategoryEntity category) {
+    public void setCategory(Category category) {
         this.category = category;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductEntity{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", weight=" + weight +
-                ", dimensions='" + dimensions + '\'' +
-                ", stockQuantity=" + stockQuantity +
-                ", parameters=" + parameters +
-                ", category=" + category +
-                '}';
     }
 }
