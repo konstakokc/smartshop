@@ -5,8 +5,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity(name = "orderItem")
-@Table(name = "orderItem")
+@Entity(name = "orderitem")
+@Table(name = "orderitem")
 public class OrderItemEntity extends BaseEntity {
 
     @ManyToOne

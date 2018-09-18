@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+List of users
 <c:if test="${!empty users}">
     <table class="tg">
         <tr>

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -14,12 +15,14 @@ import smartshop.model.entity.Utils.*;
 public class OrderEntity extends BaseEntity {
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private UserEntity user;
 
     @ManyToOne
     private AddressEntity address;
 
     @OneToMany
+    @JoinColumn(name = "order_id")
     private List<OrderItemEntity> orderItems;
 
     private LocalDate placedOn;

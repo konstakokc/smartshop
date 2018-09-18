@@ -23,7 +23,7 @@ public class UserEntity extends BaseEntity {
     @OneToMany()
     private List<AddressEntity> addresses;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "user")
     private List<OrderEntity> orders;
 
     public UserEntity() {

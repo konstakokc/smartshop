@@ -32,6 +32,6 @@ public class AddressDaoImpl implements AddressDao {
 
     @Override
     public List<AddressEntity> getAddresses() {
-        return entityManager.createQuery("SELECT a from address a").getResultList();
+        return entityManager.createQuery("SELECT a from address a", AddressEntity.class).getResultList();
     }
 }
