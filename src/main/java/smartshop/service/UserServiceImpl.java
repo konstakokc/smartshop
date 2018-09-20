@@ -37,6 +37,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void updateUser(User user) {
+        userDao.updateUser(GeneralService.map(user, UserEntity.class));
+    }
+
+    @Override
     @Transactional
     public void deleteUser(int id) {
         userDao.deleteUser(id);
