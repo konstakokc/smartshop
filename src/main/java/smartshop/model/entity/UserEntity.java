@@ -21,7 +21,7 @@ public class UserEntity extends BaseEntity {
     @NotBlank
     private String password;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<AddressEntity> addresses;
 
     @OneToMany(mappedBy = "user")

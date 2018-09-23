@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import smartshop.dao.UserDao;
+import smartshop.model.dto.Address;
 import smartshop.model.dto.User;
 import smartshop.model.entity.UserEntity;
 
@@ -37,6 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void updateUser(User user) {
         userDao.updateUser(GeneralService.map(user, UserEntity.class));
     }
@@ -45,5 +47,13 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void deleteUser(int id) {
         userDao.deleteUser(id);
+    }
+
+    @Override
+    @Transactional
+    public void addAddress(int userId, Address address) {
+        User user = getUser(userId);
+        user.getAddresses().add(address);
+        updateUser(user);
     }
 }

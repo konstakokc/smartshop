@@ -59,4 +59,16 @@ public class Address extends BaseDto {
     public void setApartment(int apartment) {
         this.apartment = apartment;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode=" + postalCode +
+                ", street='" + street + '\'' +
+                ", building='" + building + '\'' +
+                ", apartment=" + apartment +
+                '}';
+    }
 }
