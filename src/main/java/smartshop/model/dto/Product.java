@@ -68,4 +68,16 @@ public class Product extends BaseDto {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", weight=" + weight +
+                ", dimensions='" + dimensions + '\'' +
+                ", stockQuantity=" + stockQuantity +
+                ", category=" + category +
+                '}';
+    }
 }
