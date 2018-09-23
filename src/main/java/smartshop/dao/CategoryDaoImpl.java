@@ -9,7 +9,6 @@ import smartshop.model.entity.CategoryEntity;
 @Repository
 public class CategoryDaoImpl implements CategoryDao {
 
-    //Entity Manager
     @PersistenceContext
     private EntityManager entityManager;
 
