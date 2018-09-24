@@ -1,6 +1,7 @@
 package smartshop.model.dto;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import smartshop.model.entity.Utils.*;
 
@@ -22,6 +23,10 @@ public class Order extends BaseDto {
     private PaymentStatus paymentStatus;
 
     private OrderStatus orderStatus;
+
+    public Order() {
+        orderItems = new ArrayList<>();
+    }
 
     public User getUser() {
         return user;
@@ -93,5 +98,16 @@ public class Order extends BaseDto {
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "user=" + user +
+                ", orderItems=" + orderItems +
+                ", placedOn=" + placedOn +
+                ", totalPrice=" + totalPrice +
+                ", orderStatus=" + orderStatus +
+                '}';
     }
 }
