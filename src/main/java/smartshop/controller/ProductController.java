@@ -1,5 +1,6 @@
 package smartshop.controller;
 
+import org.apache.commons.lang3.tuple.MutablePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,7 @@ public class ProductController {
     public void setProductService(ProductService productService) {
         this.productService = productService;
     }
-    
+
     @Autowired
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
@@ -56,7 +57,24 @@ public class ProductController {
         return  "redirect:/products";
     }
 
-//    @GetMapping(value = "/newAddress")
+    @GetMapping(value = "/newParameter")
+    public String createNewParameterToProduct(@ModelAttribute("product") Product product, Model model) {
+        model.addAttribute("productId", product.getId());
+        model.addAttribute("parameter", new MutablePair<>());
+        return "newParameter";
+    }
+
+    @PostMapping(value = "/addParameter/{productId}")
+    public String addNewParameterToProduct(@PathVariable("productId") int productId, @ModelAttribute("parameter") MutablePair<String, String> pair) {
+//        System.out.println(product);
+//        System.out.println(product.getParameters());
+        Product product = productService.getProduct(productId);
+        product.getParameters().put(pair.left, pair.right);
+        productService.updateProduct(product);
+        return "redirect:/product/" + product.getId();
+    }
+
+//   @GetMapping(value = "/newAddress")
 //    public String createNewAddressToProduct(@ModelAttribute("product") Product product, Model model) {
 //        model.addAttribute("product", product);
 //        model.addAttribute("address", new Address());

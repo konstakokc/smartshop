@@ -41,7 +41,6 @@
                 </c:forEach>
                 </form:select>
             </td>
-            <%--<td><form:input path="category.id" /></td>--%>
         </tr>
 
         <%--PARAMETERS--%>

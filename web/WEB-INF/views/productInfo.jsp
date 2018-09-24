@@ -7,9 +7,8 @@
     <title>Product Info</title>
 </head>
 <body>
-<%--<c:url var="addAction" value="/newAddress" />--%>
-<c:url var="addAction" value="/products" />
-<form:form action="${addAction}" modelAttribute="product" method="post">
+<c:url var="addAction" value="/newParameter" />
+<form:form action="${addAction}" modelAttribute="product" method="get">
     <table>
         <tr>
             <td><form:label path="id"><spring:message text="Id"/></form:label></td>
@@ -49,7 +48,7 @@
         </c:forEach>
         <tr>
             <td colspan="2">
-                <input type="submit" value="<spring:message text="Products"/>" />
+                <input type="submit" value="<spring:message text="Add parameter"/>" />
             </td>
         </tr>
     </table>

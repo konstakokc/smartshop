@@ -1,5 +1,6 @@
 package smartshop.model.dto;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Product extends BaseDto {
@@ -12,6 +13,10 @@ public class Product extends BaseDto {
     private Map<String, String> parameters;
 
     private Category category;
+
+    public Product() {
+        parameters = new HashMap<>();
+    }
 
     public String getName() {
         return name;
