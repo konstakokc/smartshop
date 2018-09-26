@@ -1,13 +1,12 @@
 package smartshop.model.dto;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class User extends BaseDto {
     private String firstName;
     private String lastName;
-    private LocalDate birthdate;
+    private String birthdate;
     private String email;
     private String password;
 
@@ -17,6 +16,7 @@ public class User extends BaseDto {
     public User() {
         addresses = new ArrayList<>();
         orders = new ArrayList<>();
+//        birthdate = LocalDate.MIN;
     }
 
     public String getFirstName() {
@@ -35,11 +35,11 @@ public class User extends BaseDto {
         this.lastName = lastName;
     }
 
-    public LocalDate getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(LocalDate birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 

@@ -1,5 +1,7 @@
 package smartshop.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,9 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void addUser(User user) {
-        userDao.addUser(GeneralService.map(user, UserEntity.class));
+        UserEntity userEntity = GeneralService.map(user, UserEntity.class);
+        userEntity.setBirthdate(stringToLocalDate(user.getBirthdate()));
+        userDao.addUser(userEntity);
     }
 
     @Override
@@ -40,7 +44,9 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void updateUser(User user) {
-        userDao.updateUser(GeneralService.map(user, UserEntity.class));
+        UserEntity userEntity = GeneralService.map(user, UserEntity.class);
+        userEntity.setBirthdate(stringToLocalDate(user.getBirthdate()));
+        userDao.updateUser(userEntity);
     }
 
     @Override
@@ -55,5 +61,17 @@ public class UserServiceImpl implements UserService {
         User user = getUser(userId);
         user.getAddresses().add(address);
         updateUser(user);
+    }
+
+    private LocalDate stringToLocalDate(String birthdate) {
+        if (birthdate != null) {
+            if (birthdate.matches("^\\d{2}\\.\\d{2}\\.\\d{4}$")) {
+                return LocalDate.parse(birthdate, DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+            }
+            return LocalDate.parse(birthdate);
+        } else {
+            System.out.println("B-day = null");
+            return null;
+        }
     }
 }

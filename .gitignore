@@ -1,2 +1,12 @@
 .idea/
 out/
+/web/resources/css/bootstrap.css
+/web/resources/css/bootstrap-grid.css
+/web/resources/css/bootstrap-reboot.css
+/web/resources/js/bootstrap.js
+/web/resources/js/jquery-3.3.1.js
+/web/resources/js/bootstrap.bundle.js
+src/main/java/Main.java
+src/main/java/Testing.java
+src/main/resources/schema-sql
+target/

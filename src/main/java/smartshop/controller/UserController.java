@@ -1,6 +1,5 @@
 package smartshop.controller;
 
-import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,14 +35,12 @@ public class UserController {
     @GetMapping(value = "/newUser")
     public String addUser(Model model) {
         User user = new User();
-        user.setBirthdate(LocalDate.now());
         model.addAttribute("user", user);
         return "newUser";
     }
 
     @PostMapping(value = "/addUser")
     public String addUser(@ModelAttribute("user") User user) {
-        System.out.println("post User");
         if (user.getId() == 0) {
             this.userService.addUser(user);
         } else {
