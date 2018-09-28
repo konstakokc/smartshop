@@ -1,11 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/style.css">
     <script src="resources/js/bootstrap.min.js"></script>
-    <title>Categories</title>
+    <title>List of orders</title>
 </head>
 <body>
 <nav class="site-header sticky-top py-1">
@@ -20,25 +20,30 @@
         <a class="py-2 d-none d-md-inline-block" href="<c:url value="/orders"/>">Orders</a>
     </div>
 </nav>
-<h2>Category list</h2>
-<c:if test="${!empty categories}">
-    <table class="table">
-        <thead>
-        <tr>
+<h2>List of orders</h2>
+<table class="table">
+<c:if test="${!empty orders}">
+    <thead>
+    <tr>
             <th scope="col" width="120">ID</th>
-            <th scope="col" width="60">Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${categories}" var="category">
+            <th scope="col" width="120">Date</th>
+            <th scope="col" width="120">Price</th>
+            <th scope="col" width="120">Status</th>
+            <th scope="col" width="100">More info</th>
+    </tr>
+    </thead>
+    <tbody>
+        <c:forEach items="${orders}" var="order">
             <tr>
-                <td>${category.id}</td>
-                <td>${category.name}</td>
-                <%--<td><a href="<c:url value='/category/returnPage/${category.categoryID}' />" >Delete</a></td>--%>
+                <td>${order.id}</td>
+                <td>${order.placedOn}</td>
+                <td>${order.totalPrice}</td>
+                <td>${order.orderStatus.name()}</td>
+                <td><a href="<c:url value='/order/${order.id}' />" >Info</a></td>
             </tr>
         </c:forEach>
-        </tbody>
-    </table>
+    </tbody>
 </c:if>
+</table>
 </body>
 </html>
